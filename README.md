@@ -93,4 +93,4 @@ The best performing model weights (`best.pt`) are included in this repository:
 
 ```bash
 # Download the pretrained model
-wget https://github.com/WoDauKuro/cocoa-disease-prediction/raw/main/best.pt
+wget https://github.com/WoDauKuro/cocoa-disease-prediction/blob/main/best.pt

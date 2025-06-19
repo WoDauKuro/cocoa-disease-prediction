@@ -2,6 +2,10 @@
 
 A computer vision system for detecting diseased cocoa beans using YOLOv8 object detection. Identifies three classes: Anthracnose (fungal disease), CSSVD (Cocoa Swollen Shoot Virus Disease), and healthy beans.
 
+## 🧠 Project Overview
+
+This project is part of the [Amini Cocoa Contamination Challenge](https://zindi.africa/competitions/amini-cocoa-contamination-challenge), which focuses on identifying visual symptoms of cocoa diseases — **Anthracnose** and **CSSVD** — using object detection techniques. The goal is to support early disease detection to improve cocoa crop yield and farmer outcomes.
+
 ## 📂 Dataset
 
 The dataset used in this project is available from these sources:
@@ -38,6 +42,24 @@ The dataset used in this project is available from these sources:
 | anthracnose    | 733   |
 | None           | 17    |
 
+## 🔧 Potential Improvements
+
+While the model achieved promising results within the allowed training time, there are several areas for potential improvement:
+
+- **Extended Training Time**: The challenge permitted up to ~9 hours for model training, but this implementation only used approximately **2 hours and 20 minutes** on a Kaggle Notebook with a **P100 GPU**. Utilizing the full training window could allow for:
+  - More training epochs
+  - Improved convergence
+  - Better generalization
+
+- **Data Augmentation**: Additional augmentation techniques such as MixUp, Mosaic, CutMix, or random erasing could help the model become more robust to variations in bean appearance and backgrounds.
+
+- **Hyperparameter Tuning**: Exploring different learning rates, batch sizes, and image sizes may yield performance improvements.
+
+- **Model Architecture**: While YOLOv8 performed well, experimenting with larger YOLOv8 variants (e.g., `yolov8m` or `yolov8l`) or alternative architectures (like Faster R-CNN or EfficientDet) could enhance accuracy — given more compute time.
+
+- **Ensembling**: Combining predictions from multiple models trained with different seeds or architectures could improve final predictions.
+
+
 ## Dataset Preparation
 
 ### Dataset structure:
@@ -60,6 +82,10 @@ The dataset used in this project is available from these sources:
     test: images/test
     nc: 3
     names: ['anthracnose', 'cssvd', 'healthy']
+
+## 💻 Training Environment
+
+The model was trained on [Kaggle Notebooks](https://www.kaggle.com/code) using a **P100 GPU accelerator**. Training took approximately **2 hours and 20 minutes** for 50 epochs.
 
 ## Pretrained Model
 
